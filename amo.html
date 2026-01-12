@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio de sesión</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    }
+    .card {
+      background: white;
+      width: 92%;
+      max-width: 380px;
+      padding: 24px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #ee5a7a;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .error { color: red; display: none; margin-top: 10px; }
+
+    /* Página amor */
+    .love-page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      animation: fadeIn 1s ease;
+    }
+    .love-page img {
+      width: 95%;
+      max-width: 420px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+    .heart { font-size: 40px; animation: pulse 1.5s infinite; }
+    .extra {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 420px;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* Carrusel */
+    .carousel {
+      overflow: hidden;
+      width: 100%;
+      max-width: 420px;
+      margin-top: 30px;
+    }
+    .carousel-track {
+      display: flex;
+      gap: 15px;
+      animation: scroll 20s linear infinite;
+    }
+    .carousel-track img {
+      width: 200px;
+      height: auto;
+      border-radius: 16px;
+      flex-shrink: 0;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card" id="login">
+  <h2>Iniciar sesión</h2>
+  <input type="text" id="user" placeholder="Usuario" />
+  <input type="password" id="pass" placeholder="Contraseña" />
+  <button onclick="login()">Entrar</button>
+  <div class="error" id="error">Datos incorrectos</div>
+</div>
+
+<div class="love-page" id="love">
+  <img src="1.jpg" alt="Foto romántica" />
+  <h2>07/10/25</h2>
+  <h1>Te amoo</h1>
+  <div class="heart">❤️</div>
+
+  <!-- Tira de fotos en movimiento -->
+  <div class="carousel">
+    <div class="carousel-track">
+      <img src="2.jpg" />
+      <img src="3.jpg" />
+      <img src="4.jpg" />
+      <img src="5.jpg" />
+      <img src="6.jpg" />
+      <img src="7.jpg" />
+      <img src="8.jpg" />
+      <img src="9.jpg" />
+      <img src="10.jpg" />
+      <img src="11.jpg" />
+    </div>
+  </div>
+</div>
+
+<script>
+  function login() {
+    const u = document.getElementById('user').value;
+    const p = document.getElementById('pass').value;
+
+    if (u === 'azumy' && p === '07/10/25') {
+      document.getElementById('login').style.display = 'none';
+      document.getElementById('love').style.display = 'flex';
+    } else {
+      document.getElementById('error').style.display = 'block';
+    }
+  }
+</script>
+
+</body>
+</html>

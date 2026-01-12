@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Instagram - Iniciar sesión</title>
+
+<style>
+body {
+  background: #fafafa;
+  font-family: Arial, sans-serif;
+}
+
+.login-box {
+  width: 300px;
+  margin: 100px auto;
+  padding: 30px;
+  background: white;
+  border: 1px solid #dbdbdb;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Segoe Script', cursive;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #3897f0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #2d82d4;
+}
+
+#msg {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+  <h1>Instagram</h1>
+
+  <input type="text" id="user" placeholder="Teléfono, usuario o correo">
+  <input type="password" id="pass" placeholder="Contraseña">
+
+  <button onclick="login()">Iniciar sesión</button>
+
+  <p id="msg"></p>
+</div>
+
+<script>
+function login() {
+  const user = document.getElementById("user").value;
+  const pass = document.getElementById("pass").value;
+  const msg = document.getElementById("msg");
+
+  if (user === "" || pass === "") {
+    msg.textContent = "Completa todos los campos";
+    return;
+  }
+
+  // Simulación de usuario
+  if (user === "erick" && pass === "1234") {
+    alert("Inicio de sesión exitoso");
+    msg.textContent = "";
+  } else {
+    msg.textContent = "Usuario o contraseña incorrectos";
+  }
+}
+</script>
+
+</body>
+</html>
